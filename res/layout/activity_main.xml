@@ -1,0 +1,16 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pla="http://schemas.android.com/apk/com.huewu.pla"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+     <com.huewu.pla.lib.MultiColumnListView
+        android:id="@+id/list_waterfall"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        pla:plaColumnNumber="2"
+        pla:plaLandscapeColumnNumber="3">
+    </com.huewu.pla.lib.MultiColumnListView>
+    
+</RelativeLayout>
