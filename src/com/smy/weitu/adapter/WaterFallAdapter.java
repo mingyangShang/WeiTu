@@ -4,12 +4,10 @@ import java.util.List;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.support.v7.graphics.Palette;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -21,17 +19,16 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.smy.weitu.R;
+import com.smy.weitu.base.WeiTuApplication;
 import com.smy.weitu.model.WeiTuRecord;
 
 public class WaterFallAdapter extends BaseAdapter {
 	
 	private List<WeiTuRecord> records; //记录
 	
-	private final OnWeiTuClickListener weiTuClickListener;
+	private final OnWeiTuClickListener weiTuClickListener; //item onclicklistener
 	
-	private final LayoutInflater inflater;
-	
-	private final Drawable defaultImg; //默认图片
+	private final LayoutInflater inflater;//inflater to inflate layout of  the adapter's item
 	
 	public WaterFallAdapter(List<WeiTuRecord> records, Context context) {
 		super();
@@ -42,7 +39,6 @@ public class WaterFallAdapter extends BaseAdapter {
 		}
 		this.records = records;
 		inflater = LayoutInflater.from(context);
-		defaultImg = context.getResources().getDrawable(R.drawable.ic_launcher);
 	}
 
 	@Override
@@ -95,7 +91,8 @@ public class WaterFallAdapter extends BaseAdapter {
 				weiTuClickListener.onWeiTuClick(position);
 			}
 		});
-		ImageLoader.getInstance().displayImage(imgUri, viewHolder.ivImg, new ImageLoadingListener() {
+		// display image
+		ImageLoader.getInstance().displayImage(imgUri, viewHolder.ivImg,new ImageLoadingListener() {
 			
 			@Override
 			public void onLoadingStarted(String arg0, View arg1) {

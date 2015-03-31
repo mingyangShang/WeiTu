@@ -1,43 +1,56 @@
 package com.smy.weitu.ui;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 import uk.co.senab.photoview.PhotoViewAttacher;
 import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.smy.weitu.R;
+import com.smy.weitu.adapter.PhotoPagerAdapter;
 import com.smy.weitu.base.BaseActivity;
 import com.smy.weitu.model.WeiTuRecord;
 
 /**展示图片的Activity*/
 public class PhotoActivity extends BaseActivity {
-	private ImageView img;
-	private PhotoViewAttacher attacher;
+	private ViewPager photoViewPager; //the viewpager to show the images
+	private PagerAdapter photoAdapter; //the pageradapter for the images viewpager
 	
-	private WeiTuRecord record;
-	private String imgUri;
+	private List<String> imgUris = new ArrayList<String>(); //imgUri list
+	
+	private String firstUri ; //the uri of the first when come to the activity
 	@Override
 	public void onCreate(Bundle savedInstance){
-		super.onCreate(savedInstance);
-		setContentView(R.layout.activity_photo);
-		init();
+		onCreate(savedInstance, R.layout.activity_photo);
 	}
 	
-	@Override
+	@Override 
 	protected void initData() {
 		Bundle data = getBundleFromUp();
 		if(data!=null){
 //			record = data.getParcelable("record");
-			imgUri = data.getString("imgUri");
+			firstUri = data.getString("imgUri");
 		}
+		imgUris.add("drawable://"+R.drawable.ic_launcher);
+		imgUris.add("drawable://"+R.drawable.deathnote);
+		
+		photoAdapter = new PhotoPagerAdapter(this, imgUris);
 	}
 
 	@Override
 	protected void initView() {
-		img = (ImageView) getView(R.id.img_show);
+/*		img = (ImageView) getView(R.id.img_show);
 		attacher = new PhotoViewAttacher(img);
 //		ImageLoader.getInstance().displayImage(record.getUri(), img);
-		ImageLoader.getInstance().displayImage(imgUri, img);
+		ImageLoader.getInstance().displayImage(imgUri, img);*/
+		photoViewPager = (ViewPager) findViewById(R.id.viewpager_photos);
+		photoViewPager.setAdapter(photoAdapter);
 	}
-
 }

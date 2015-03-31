@@ -1,23 +1,23 @@
 package com.smy.weitu.base;
 
-import android.app.Activity;
-import android.os.Bundle;
-
+import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
-import com.smy.weitu.R;
 
-public class BaiduMapActivity extends Activity {
+public class BaiduMapActivity extends BaseActivity {
 	
 	protected MapView mMapView = null; //地图mapview控件
+	protected BaiduMap map; 
+	
+	protected long centerLong,centerLan; //
 	
 	private int markerRes; //标记物的资源id
 
-	@Override
+/*	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// 在使用SDK各组件之前初始化context信息，传入ApplicationContext
@@ -25,7 +25,7 @@ public class BaiduMapActivity extends Activity {
 		setContentView(R.layout.baidumap_test);
 		// 获取地图控件引用
 		mMapView = (MapView) findViewById(R.id.bmapView);
-	}
+	}*/
 
 	@Override
 	protected void onDestroy() {
@@ -61,5 +61,17 @@ public class BaiduMapActivity extends Activity {
 	}
 	public void setMarkerRes(int markerRes) {
 		this.markerRes = markerRes;
+	}
+
+	@Override
+	protected void initData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void initView() {
+		// TODO Auto-generated method stub
+		
 	}
 }

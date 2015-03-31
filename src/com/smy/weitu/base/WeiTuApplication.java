@@ -10,6 +10,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.smy.weitu.R;
 import com.smy.weitu.model.DaoMaster;
 import com.smy.weitu.model.DaoSession;
 import com.smy.weitu.model.DaoMaster.OpenHelper;
@@ -32,9 +33,11 @@ public class WeiTuApplication extends Application {
 			.displayer(new FadeInBitmapDisplayer(50))
 			.bitmapConfig(Bitmap.Config.RGB_565)
 			.imageScaleType(ImageScaleType.EXACTLY)
+			.showImageForEmptyUri(R.drawable.deathnote)
+			.showImageOnFail(R.drawable.deathnote)
 			.build();
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
-			.memoryCache(new UsingFreqLimitedMemoryCache(16*1024*1024))
+			.memoryCache(new UsingFreqLimitedMemoryCache(32*1024*1024))
 			.defaultDisplayImageOptions(defaultOptions)
 			.build();
 		ImageLoader.getInstance().init(config);

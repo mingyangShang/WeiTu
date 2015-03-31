@@ -8,9 +8,8 @@
      <com.huewu.pla.lib.MultiColumnListView
         android:id="@+id/list_waterfall"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" 
+        android:layout_height="match_parent"  
         pla:plaColumnNumber="2"
-        pla:plaLandscapeColumnNumber="3">
-    </com.huewu.pla.lib.MultiColumnListView>
+        pla:plaLandscapeColumnNumber="3"/>
     
 </RelativeLayout>

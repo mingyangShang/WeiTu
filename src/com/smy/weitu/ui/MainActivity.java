@@ -3,7 +3,6 @@ package com.smy.weitu.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.huewu.pla.lib.MultiColumnListView;
@@ -21,17 +20,17 @@ public class MainActivity extends BaseActivity implements OnWeiTuClickListener{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		init();
+		super.onCreate(savedInstanceState,R.layout.activity_main);
 	}
 
 	@Override
 	protected void initData(){
 		records = new ArrayList<WeiTuRecord>();
 		records.add(new WeiTuRecord("drawable://"+R.drawable.ic_launcher));
-		records.add(new WeiTuRecord("drawable://"+R.drawable.deathnote));
+		records.add(new WeiTuRecord("drawable://"+R.drawable.image06));
 		records.add(new WeiTuRecord("drawable://"+R.drawable.img1));
+		records.add(new WeiTuRecord("drawable://"+R.drawable.image06));
+		records.add(new WeiTuRecord("drawable://"+R.drawable.deathnote));
 	}
 	
 	@Override

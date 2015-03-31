@@ -12,6 +12,18 @@ public abstract class BaseActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 	}
+	
+	/**sub class can override this func not old onCreate to simplify manipulation*/
+	protected void onCreate(Bundle savedInstanceState,int resId){
+		super.onCreate(savedInstanceState);
+		setContentView(resId);
+		init();
+	}
+	protected void onCreate(Bundle savedInstanceState,View view){
+		super.onCreate(savedInstanceState);
+		setContentView(view);
+		init();
+	}
 
 	@Override
 	protected void onResume() {

@@ -7,69 +7,64 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="21" />
-    
+
     <!-- 百度地图申请权限 -->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />  
-	<uses-permission android:name="android.permission.USE_CREDENTIALS" />  
-	<uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />  
-	<uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />  
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />  
-	<uses-permission android:name="android.permission.INTERNET" />  
-	<uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />  
-	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />  
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />  
-	<uses-permission android:name="android.permission.READ_PHONE_STATE" />  
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />  
-	<uses-permission android:name="android.permission.BROADCAST_STICKY" />  
-	<uses-permission android:name="android.permission.WRITE_SETTINGS" />  
-	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:allowBackup="true"
         android:name=".base.WeiTuApplication"
+        android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/app_name" >
-              <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <!-- photoview测试 -->
-        <activity 
-            android:name=".ui.PhotoActivity">
-        </activity>
+        <activity android:name=".ui.PhotoActivity" ></activity>
+        <!-- map activity-->
+        <activity android:name=".ui.PhotoMapActivity"></activity>
         <!-- 地图测试 -->
-        <activity
-            android:name=".ui.TestMapActivity">
+        <activity android:name="com.smy.weitu.test.TestMapActivity" >
         </activity>
-        
-        <activity
-            android:name=".ui.TestPaletteActivity">
+        <activity android:name="com.smy.weitu.test.TestPaletteActivity" >
         </activity>
-        
-        <receiver 
+
+        <receiver
             android:name=".CameraReceiver"
-            android:enabled="true">
+            android:enabled="true" >
             <intent-filter>
                 <!-- Api14 below used the action -->
                 <!-- <action android:name="com.android.camera.NEW_PICTURE"/> -->
-                
-                <action android:name="android.hardware.action.NEW_PICTURE"/>
+                <action android:name="android.hardware.action.NEW_PICTURE" />
                 <data android:mimeType="image/*" />
             </intent-filter>
         </receiver>
-        
+
         <!-- 百度地图sdk访问key -->
         <meta-data
-           android:name="com.baidu.lbsapi.API_KEY"
-           android:value="rpM1bFQOMunfwATDzXHKEd1Y"/>
-           
-           
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="rpM1bFQOMunfwATDzXHKEd1Y" />
     </application>
 
 </manifest>

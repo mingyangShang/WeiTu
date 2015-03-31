@@ -22,7 +22,7 @@ import com.smy.weitu.SwipeListView.OnDeleteListener;
 import com.smy.weitu.model.WeiTuRecord;
 import com.smy.weitu.storage.DBStorage;
 import com.smy.weitu.storage.FileStorage;
-import com.smy.weitu.tool.SystemInfo;
+import com.smy.weitu.utils.SystemInfoUtil;
 
 
 public class MainActivity extends Activity {
@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);  
         setContentView(R.layout.listview_test);
         
-        Log.e(TAG, SystemInfo.getDCIMUri().toString());
+        Log.e(TAG, SystemInfoUtil.getDCIMUri().toString());
 //        content://media/external/images/media
         
         DBStorage dbStorage = DBStorage.getSingleton();
