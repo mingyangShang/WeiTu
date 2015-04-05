@@ -11,6 +11,7 @@ import com.smy.weitu.adapter.WaterFallAdapter;
 import com.smy.weitu.adapter.WaterFallAdapter.OnWeiTuClickListener;
 import com.smy.weitu.base.BaseActivity;
 import com.smy.weitu.model.WeiTuRecord;
+import com.smy.weitu.utils.SystemInfoUtil;
 
 /**图库界面*/
 public class MainActivity extends BaseActivity implements OnWeiTuClickListener{
@@ -21,6 +22,7 @@ public class MainActivity extends BaseActivity implements OnWeiTuClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState,R.layout.activity_main);
+		
 	}
 
 	@Override

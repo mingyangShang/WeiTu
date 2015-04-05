@@ -14,6 +14,8 @@ import com.smy.weitu.R;
 import com.smy.weitu.model.DaoMaster;
 import com.smy.weitu.model.DaoSession;
 import com.smy.weitu.model.DaoMaster.OpenHelper;
+import com.smy.weitu.utils.SystemInfoUtil;
+import com.smy.weitu.utils.SystemInfoUtil.SizeUnit;
 
 public class WeiTuApplication extends Application {
 	private static WeiTuApplication mInstance;
@@ -28,7 +30,6 @@ public class WeiTuApplication extends Application {
 		}
 		//初始化图片加载库
 		DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-			.cacheOnDisc()
 			.cacheInMemory()
 			.displayer(new FadeInBitmapDisplayer(50))
 			.bitmapConfig(Bitmap.Config.RGB_565)
@@ -37,12 +38,19 @@ public class WeiTuApplication extends Application {
 			.showImageOnFail(R.drawable.deathnote)
 			.build();
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
-			.memoryCache(new UsingFreqLimitedMemoryCache(32*1024*1024))
+			.memoryCache(new UsingFreqLimitedMemoryCache((int) SystemInfoUtil.getAppMaxMemory(SizeUnit.KB)))
 			.defaultDisplayImageOptions(defaultOptions)
 			.build();
 		ImageLoader.getInstance().init(config);
 		//初始化百度地图
 //		SDKInitializer.initialize(this);
+		
+		//test the application memory size
+		System.out.println("totalSize:"+SystemInfoUtil.getTotalMemory(this,SizeUnit.MB));
+		System.out.println("avaliableSize:"+SystemInfoUtil.getAvailMemory(this,SizeUnit.MB));
+		System.out.println("maxAppSize:"+SystemInfoUtil.getAppMaxMemory(SizeUnit.MB));
+		System.out.println("totalAppSize:"+SystemInfoUtil.getAppTotalMemory(SizeUnit.MB));
+		System.out.println("availAppSize:"+SystemInfoUtil.getAppAvailMemory(SizeUnit.MB));
 	}
 	public static WeiTuApplication getInstance(){
 		return mInstance;

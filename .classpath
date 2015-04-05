@@ -8,7 +8,6 @@
 			<attribute name="javadoc_location" value="jar:file:/E:/课件/Android/framework/orm/greendao/greendao-1.3.7-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="libs/library-1.2.2.jar"/>
 	<classpathentry kind="lib" path="libs/baidumapapi_v3_3_0.jar"/>
 	<classpathentry kind="lib" path="libs/android-support-v7-palette.jar"/>
 	<classpathentry kind="lib" path="libs/ImageLoader.jar"/>

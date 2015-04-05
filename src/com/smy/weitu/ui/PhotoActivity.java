@@ -1,22 +1,15 @@
 package com.smy.weitu.ui;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
-import uk.co.senab.photoview.PhotoViewAttacher;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.widget.ImageView;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.smy.weitu.R;
 import com.smy.weitu.adapter.PhotoPagerAdapter;
 import com.smy.weitu.base.BaseActivity;
-import com.smy.weitu.model.WeiTuRecord;
 
 /**展示图片的Activity*/
 public class PhotoActivity extends BaseActivity {

@@ -1,6 +1,5 @@
 package com.smy.weitu.test;
 
-import uk.co.senab.photoview.PhotoViewAttacher;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout.LayoutParams;
 
+import com.chrisbanes.photoview.PhotoViewAttacher;
 import com.smy.weitu.R;
 
 public class TestPhotoViewActivity extends Activity {
